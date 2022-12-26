@@ -30,7 +30,7 @@ class Genre(models.Model):  # genre
 class Artist(models.Model):  # artist
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     name = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='photos/%Y/%m/')
+    photo = models.ImageField(upload_to='photos/%Y/%m/', blank=True)
     is_verify = models.BooleanField(default=False)
 
     class Meta:
