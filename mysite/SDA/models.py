@@ -6,7 +6,7 @@ class User(models.Model):  # user acc. info
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     username = models.CharField(max_length=20)
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo = models.ImageField(upload_to='photos/', blank=True)
     created_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
 
@@ -30,7 +30,7 @@ class Genre(models.Model):  # genre
 class Artist(models.Model):  # artist
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     name = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='photos/%Y/%m/', blank=True)
+    photo = models.ImageField(upload_to='photos/', blank=True)
     is_verify = models.BooleanField(default=False)
 
     class Meta:
@@ -47,7 +47,7 @@ class Album(models.Model):  # album
     title = models.CharField(max_length=150)
     artist = models.ForeignKey(Artist, on_delete=models.PROTECT, related_name='albumArtist')
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='albumGenre')
-    photo = models.ImageField(upload_to='photos/%Y/%m/', blank=True)
+    photo = models.ImageField(upload_to='photos/', blank=True)
     date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True, verbose_name='Published?')
@@ -68,7 +68,7 @@ class Track(models.Model):  # track
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='trackGenre')
     artist = models.ForeignKey(Artist, on_delete=models.PROTECT, related_name='trackArtist')
     album = models.ForeignKey(Album, on_delete=models.PROTECT, related_name='trackAlbum')
-    photo = models.ImageField(upload_to='photos/%Y/%m/', blank=True)
+    photo = models.ImageField(upload_to='photos/', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='Published?')
 
     class Meta:
@@ -84,7 +84,7 @@ class Playlist(models.Model):  # playlist
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     title = models.CharField(max_length=150)
     track = models.ForeignKey(Track, on_delete=models.PROTECT, related_name='playlistTrack')
-    photo = models.ImageField(upload_to='photos/%Y/%m/', blank=True)
+    photo = models.ImageField(upload_to='photos/', blank=True)
     author = models.ForeignKey(User, on_delete=models.PROTECT, related_name='playlistAuthor')
     description = models.CharField(max_length=255)
 
@@ -96,7 +96,7 @@ class MyMusics(models.Model):  # Myplaylist
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     title = models.CharField(max_length=150)
     track = models.ForeignKey(Track, on_delete=models.PROTECT, related_name='MyPlaylistTrack')
-    photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    photo = models.ImageField(upload_to='photos/', blank=True)
     description = models.CharField(max_length=255)
 
     def __str__(self):
