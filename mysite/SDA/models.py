@@ -1,5 +1,5 @@
 from djongo import models
-#check
+
 
 class User(models.Model):  # user acc. info
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
