@@ -8,7 +8,9 @@ urlpatterns = [
     path('add_track', addTrack),
     path('all_track', allTracks),
     path('profile', proFile),
-    path('welcome', welcome)
+    path('welcome', welcome),
+    path('example', example),
+    path('login', login)
 ]
 
 if settings.DEBUG:

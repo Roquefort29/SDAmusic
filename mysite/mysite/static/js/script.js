@@ -84,3 +84,30 @@ var swiper = new Swiper(".featured-slider", {
     },
   },
 });
+
+ jQuery.validator.setDefaults({
+        debug: true,
+        success:  function(label){
+            label.attr('id', 'valid');
+        },
+    });
+    $( "#myform" ).validate({
+        rules: {
+            your_email: {
+                required: true,
+                email: true
+            },
+            password: "required"
+        },
+        messages: {
+            username: {
+                required: "Please enter an username"
+            },
+            your_email: {
+                required: "Please provide an email"
+            },
+            password: {
+                required: "Please provide a password"
+            }
+        }
+    });

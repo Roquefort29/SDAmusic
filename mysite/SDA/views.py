@@ -1,3 +1,4 @@
+import pymongo
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -5,14 +6,7 @@ from .models import *
 
 
 def main(request):
-    album = Album.objects.all
-    context = {
-        'slug': album,
-        'title': album,
-        'artist': album,
-        'image': album,
-    }
-    return render(request, "../templates/index.html", context)
+    return render(request, "../templates/index.html")
 
 
 def allTracks(request):
@@ -29,3 +23,16 @@ def proFile(request):
 
 def welcome(request):
     return render(request, "../templates/welcome.html")
+
+
+def example(request):
+    client = pymongo.MongoClient("mongodb+srv://Syrym:SuperSyr29@sdadb.krcvr71.mongodb.net/?retryWrites=true&w=majority")
+    db = client["SDA_music_stream"]
+    colle = db["SDA_album"]
+
+    data_from_db = colle.find({})
+    return render(request, "../templates/example.html", {"album": data_from_db})
+
+
+def login(request):
+    return render(request, "../templates/login.html")
