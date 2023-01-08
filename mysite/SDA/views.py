@@ -36,3 +36,7 @@ def example(request):
 
 def login(request):
     return render(request, "../templates/login.html")
+
+
+def register(request):
+    return render(request, "../templates/register.html")
