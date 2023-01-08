@@ -27,10 +27,8 @@ def welcome(request):
 
 def example(request):
     album = Album.objects.all()
-    artist = Artist.objects.all()
     context = {
         'album': album,
-        'artist': artist
     }
 
     return render(request, "../templates/example.html", context=context)
