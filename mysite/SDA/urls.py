@@ -10,7 +10,9 @@ urlpatterns = [
     path('profile', proFile),
     path('welcome', welcome),
     path('example', example),
-    path('login', login)
+    path('login', login),
+    path('register', register),
+    path('myplaylist', playlist)
 ]
 
 if settings.DEBUG:

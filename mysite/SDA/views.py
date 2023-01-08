@@ -26,13 +26,21 @@ def welcome(request):
 
 
 def example(request):
-    client = pymongo.MongoClient("mongodb+srv://Syrym:SuperSyr29@sdadb.krcvr71.mongodb.net/?retryWrites=true&w=majority")
-    db = client["SDA_music_stream"]
-    colle = db["SDA_album"]
+    album = Album.objects.all()
+    context = {
+        'album': album,
+    }
 
-    data_from_db = colle.find({})
-    return render(request, "../templates/example.html", {"album": data_from_db})
+    return render(request, "../templates/example.html", context=context)
 
 
 def login(request):
     return render(request, "../templates/login.html")
+
+
+def register(request):
+    return render(request, "../templates/register.html")
+
+
+def playlist(request):
+    return render(request, "../templates/MediaPlaylist.html")
