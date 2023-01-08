@@ -40,3 +40,7 @@ def login(request):
 
 def register(request):
     return render(request, "../templates/register.html")
+
+
+def playlist(request):
+    return render(request, "../templates/MediaPlaylist.html")
