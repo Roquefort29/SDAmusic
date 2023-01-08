@@ -12,7 +12,7 @@ urlpatterns = [
     path('example', example),
     path('login', login),
     path('register', register),
-    path('myplaylist', playlist)
+    path('myplaylist', playlist),
 ]
 
 if settings.DEBUG:

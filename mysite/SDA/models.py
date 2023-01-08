@@ -106,3 +106,11 @@ class MyMusics(models.Model):  # Myplaylist
 class Images(models.Model):
     title = models.CharField(max_length=250)
     image = models.ImageField(upload_to='photos/')
+
+    class Meta:
+        verbose_name = 'Image'
+        verbose_name_plural = 'Images'
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title
