@@ -30,9 +30,9 @@ def welcome(request):
 
 
 def example(request):
-    album = Album.objects.all()
+    track = Track.objects.all()
     context = {
-        'album': album,
+        'track': track,
     }
 
     return render(request, "../templates/example.html", context=context)

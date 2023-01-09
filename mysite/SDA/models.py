@@ -66,7 +66,7 @@ class Track(models.Model):  # track
     title = models.CharField(max_length=150)
     duration = models.DurationField()
     genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='trackGenre')
-    artist = models.ForeignKey(Artist, on_delete=models.PROTECT, related_name='trackArtist')
+    artist = models.ManyToManyField(Artist, related_name='trackArtist')
     album = models.ForeignKey(Album, on_delete=models.PROTECT, related_name='trackAlbum')
     photo = models.ImageField(upload_to='photos/', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='Published?')
@@ -78,6 +78,11 @@ class Track(models.Model):  # track
 
     def __str__(self):
         return self.title
+
+    def get_artist(self):
+        return "\n".join([p.name for p in self.artist.all()])
+
+    get_artist.short_description = "Artists"
 
 
 class Playlist(models.Model):  # playlist

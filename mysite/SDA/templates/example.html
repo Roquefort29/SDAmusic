@@ -8,15 +8,17 @@ es (20 sloc)  441 Bytes
     <title>example</title>
 </head>
 <body>
-{% for hihi in album %}
-<div class="media">
-    <img src = "{{ hihi.photo.url }}"  width="250" height="250" class="mr-3">
-        <div class = "media-body">
+{% for hihi in track %}
+
+
         <h1>{{ hihi.title }}</h1>
-        <h3>{{ hihi.artist }}</h3>
-            <h3><i>{{ hihi.genre }}</i></h3>
-        </div>
-</div>
+        <h3><i>{{ hihi.genre }}</i></h3>
+        <h3>{{ hihi.duration }}</h3>
+   {% for p in hihi.artist.all %}
+
+    <h3>{{ p }}</h3>
+
+    {% endfor %}
 {% endfor %}
 </body>
 </html>
