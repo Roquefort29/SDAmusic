@@ -22,6 +22,10 @@ def proFile(request):
 
 
 def welcome(request):
+    album = Album.objects.all()
+    context = {
+        'album': album,
+    }
     return render(request, "../templates/welcome.html")
 
 
