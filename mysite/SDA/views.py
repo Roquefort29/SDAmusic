@@ -1,4 +1,5 @@
 import pymongo
+from .forms import *
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -43,7 +44,8 @@ def login(request):
 
 
 def register(request):
-    return render(request, "../templates/register.html")
+    user_register = UserRegister
+    return render(request, "../templates/register.html", {"form": user_register})
 
 
 def playlist(request):
