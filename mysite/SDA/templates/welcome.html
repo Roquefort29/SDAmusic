@@ -22,6 +22,8 @@
         <a href="welcome">Homepage</a>
         <a href="myplaylist">My media</a>
         <a href="profile">Profile</a>
+        <a href="all_track">Tracks</a>
+        <a href="add_track">Add Track</a>
     </nav>
 
     <div class="icons">
@@ -44,13 +46,13 @@
 <section class="deal" style="margin-top: 75px;">
 
     <div class="image">
-        <img src="image/music_woman.png">
+        <img src="../media/photos/music_woman.png">
     </div>
 
     <div class="content">
         <span>Music is Life!</span>
         <h3>Listen favourite track!</h3>
-        <a href="allTracks" class="btn">Go to Listen</a>
+        <a href="all_track" class="btn">Go to Listen</a>
     </div>
 
 </section>
@@ -63,7 +65,7 @@
 
     <h1 class="heading"> <span>Featured</span> albums </h1>
     <div class="swiper featured-slider">
-{% for show in album %}
+        {% for show in album %}
         <div class="swiper-wrapper">
 
             <div class="swiper-slide slide">
@@ -317,7 +319,7 @@
 <!-- footer section starts  -->
 
 <section class="footer">
-    <div class="credit"> &copy; copyright @ 2021 by <span>SDA</span> </div>
+    <div class="credit"> We can see <span>you</span> </div>
 </section>
 
 <!-- footer section ends -->

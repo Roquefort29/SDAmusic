@@ -27,7 +27,7 @@ def welcome(request):
     context = {
         'album': album,
     }
-    return render(request, "../templates/welcome.html")
+    return render(request, "../templates/welcome.html", context=context)
 
 
 def example(request):
