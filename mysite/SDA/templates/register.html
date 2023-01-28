@@ -16,6 +16,7 @@
 			</div>
 			<form class="form-detail" action="#" method="post" id="myform">
 				<div class="form-row">
+					{% csrf_token %}
 					{{ form }}
 				</div>
 				<div class="form-row-last">

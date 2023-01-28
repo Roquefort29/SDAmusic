@@ -48,8 +48,9 @@ var swiper = new Swiper(".home-slider", {
   centeredSlides: true,
   loop:true,
   autoplay: {
-    delay: 9500,
+    delay: 1500,
     disableOnInteraction: false,
+    reverseDirection: true,
   },
   navigation: {
     nextEl: ".swiper-button-next",

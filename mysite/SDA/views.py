@@ -1,7 +1,8 @@
 import pymongo
 from .forms import *
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
 
 from .models import *
 
@@ -44,7 +45,16 @@ def login(request):
 
 
 def register(request):
-    user_register = UserRegister
+    if request.method == 'POST':
+        user_register = UserRegister(request.POST)
+        if user_register.is_valid():
+            user_register.save()
+            messages.success("Зареган братишка")
+            return redirect('login')
+        else:
+            messages.error("Опаньки, не так все просто")
+    else:
+        user_register = UserRegister()
     return render(request, "../templates/register.html", {"form": user_register})
 
 
