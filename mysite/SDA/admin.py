@@ -23,7 +23,6 @@ class TrackAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_display = ('title', 'get_artist', 'duration', 'album', 'genre', 'is_published')
 
-
 class GenreAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
 

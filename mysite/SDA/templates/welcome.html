@@ -7,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> SDA </title>
 
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -39,26 +45,13 @@
 <!-- featured section starts  -->
 <section class="featured" id="featured">
 
-    <h1 class="heading"> <span>Featured</span> albums </h1>
-    <div class="swiper featured-slider" style="display: flex">
-        {% for show in album %}
-        <div class="swiper-wrapper">
-            <div class="swiper-slide slide">
-                <div class="icons"></div>
-                <div class="image"><img src="{{ show.photo.url }}"></div>
-                <div class="content">
-                    <h3>{{show.title}}</h3>
-                    <div class="price">
-                        <div class="tracks">{{show.artist}}</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
 
-    </div>
+    <!-- Flickity HTML init -->
+<div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 1, "autoplay": true }'>
+    {% for i in album %}
+    <img class="carousel-image" src="{{i.photo.url}}">
+{% endfor %}
+</div>
 </section>
 <!--<section class="featured" id="featured">-->
 <!--    <h1 class="heading"> <span>Genres</span></h1>-->

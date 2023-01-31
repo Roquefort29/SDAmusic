@@ -45,8 +45,8 @@ class Artist(models.Model):  # artist
 class Album(models.Model):  # album
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     title = models.CharField(max_length=150)
-    artist = models.ForeignKey(Artist, on_delete=models.PROTECT, related_name='albumArtist')
-    genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='albumGenre')
+    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='albumArtist')
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, related_name='albumGenre')
     photo = models.ImageField(upload_to='for_albums/', blank=True)
     date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -65,9 +65,8 @@ class Track(models.Model):  # track
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     title = models.CharField(max_length=150)
     duration = models.DurationField()
-    genre = models.ForeignKey(Genre, on_delete=models.PROTECT, related_name='trackGenre')
-    artist = models.ManyToManyField(Artist, related_name='trackArtist')
-    album = models.ForeignKey(Album, on_delete=models.PROTECT, related_name='trackAlbum')
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, related_name='trackGenre')
+    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='trackAlbum')
     photo = models.ImageField(upload_to='for_tracks/', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='Published?')
 
