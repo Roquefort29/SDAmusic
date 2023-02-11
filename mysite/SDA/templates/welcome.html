@@ -44,89 +44,26 @@
 
 <!-- featured section starts  -->
 <section class="featured" id="featured">
-
-
+    <h1 class="heading"> <span>Featured albums</span></h1>
     <!-- Flickity HTML init -->
-<div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 1, "autoplay": true }'>
+    <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 1, "autoplay": true }'>
     {% for i in album %}
-    <img class="carousel-image" src="{{i.photo.url}}">
-{% endfor %}
-</div>
+        <img class="carousel-image" src="{{i.photo.url}}">
+    {% endfor %}
+    </div>
 </section>
-<!--<section class="featured" id="featured">-->
-<!--    <h1 class="heading"> <span>Genres</span></h1>-->
-<!--    <div class="swiper featured-slider">-->
-<!--        <div class="swiper-wrapper">-->
-<!--            <div class="swiper-slide slide">-->
-<!--                <div class="icons">-->
-<!--                </div>-->
-<!--                <div class="image">-->
-<!--                    <img src="image/rock_genre.jfif">-->
-<!--                </div>-->
-<!--                <div class="content">-->
-<!--                    <h3>Rock</h3>-->
-<!--                </div>-->
-<!--            </div>-->
 
-<!--            <div class="swiper-slide slide">-->
-<!--                <div class="icons">-->
-<!--                </div>-->
-<!--                <div class="image">-->
-<!--                    <img src="image/hip-hop_genre.jfif">-->
-<!--                </div>-->
-<!--                <div class="content">-->
-<!--                    <h3>Hip-Hop</h3>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="swiper-slide slide">-->
-<!--                <div class="icons">-->
-<!--                </div>-->
-<!--                <div class="image">-->
-<!--                    <img src="image/jazz_genre.jfif">-->
-<!--                </div>-->
-<!--                <div class="content">-->
-<!--                    <h3>Jazz</h3>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="swiper-slide slide">-->
-<!--                <div class="icons">-->
-<!--                </div>-->
-<!--                <div class="image">-->
-<!--                    <img src="image/phonk_genre.jfif">-->
-<!--                </div>-->
-<!--                <div class="content">-->
-<!--                    <h3>Phonk</h3>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="swiper-slide slide">-->
-<!--                <div class="icons">-->
-<!--                </div>-->
-<!--                <div class="image">-->
-<!--                    <img src="image/pop_genre.jfif">-->
-<!--                </div>-->
-<!--                <div class="content">-->
-<!--                    <h3>Pop</h3>-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--            <div class="swiper-slide slide">-->
-<!--                <div class="icons">-->
-<!--                </div>-->
-<!--                <div class="image">-->
-<!--                    <img src="image/electronic_genre.jfif">-->
-<!--                </div>-->
-<!--                <div class="content">-->
-<!--                    <h3>Electronic</h3>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        <div class="swiper-button-next"></div>-->
-<!--        <div class="swiper-button-prev"></div>-->
-<!--    </div>-->
-<!--</section>-->
+<section class="featured" id="featured" style="margin-top: 30px;">
+    <h1 class="heading"> <span>Genres</span></h1>
+    <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 1, "autoplay": true }'>
+        <img class="carousel-image" src="../../media/photos/electronic_genre.jfif">
+        <img class="carousel-image" src="../../media/photos/hip-hop_genre.jfif">
+        <img class="carousel-image" src="../../media/photos/jazz_genre.jfif">
+        <img class="carousel-image" src="../../media/photos/phonk_genre.jfif">
+        <img class="carousel-image" src="../../media/photos/rock_genre.jfif">
+        <img class="carousel-image" src="../../media/photos/pop_genre.jfif">
+    </div>
+</section>
 
 <!--<section class="featured" id="featured">-->
 <!--    <h1 class="heading"> <span>Other playlists</span></h1>-->

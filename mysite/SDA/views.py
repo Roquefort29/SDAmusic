@@ -28,6 +28,10 @@ def welcome(request):
     context = {
         'album': album,
     }
+    album = Album.objects.all()
+    context = {
+        'album': album,
+    }
     return render(request, "../templates/welcome.html", context=context)
 
 
