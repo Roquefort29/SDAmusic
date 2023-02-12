@@ -12,6 +12,8 @@
         <h1>{{ hihi.title }}</h1>
         <h3><i>{{ hihi.genre }}</i></h3>
         <h3>{{ hihi.duration }}</h3>
+    <source src="{{ hihi.song}}" type="">
+<img src="{{ hihi.photo.url}}">
    {% for p in hihi.artist.all %}
 
     <h3>{{ p }}</h3>
