@@ -65,7 +65,7 @@ class Track(models.Model):  # track
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     title = models.CharField(max_length=150)
     duration = models.DurationField()
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='trackArtist', default='')
+    artist = models.ManyToManyField(Artist)
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, related_name='trackGenre')
     album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='trackAlbum')
     song = models.FileField(upload_to='for_audiofiles/', default='')
