@@ -1,10 +1,56 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="../media/photos/logo.png">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Playlist</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
+
+<!-- header section starts  -->
+{% include 'inc/_nav.html' %}
+<!-- header section ends -->
+<section class="products" id="products">
+
+    <h1 class="heading"> exclusive <span>products</span> </h1>
+
+    <div class="filter-buttons">
+        <div class="buttons" data-filter="playlists">Playlists</div>
+        <div class="buttons" data-filter="albums">Albums</div>
+        <div class="buttons" data-filter="artists">Artists</div>
+    </div>
+
+    <div class="box-container">
+{% for item in jazz %}
+        <div class="box" data-item="albums">
+            <div class="icons">
+                <a href="#" class="fas fa-eye"></a>
+                <a href="#" class="fas fa-play"></a>
+                <a href="#" class="fas fa-heart"></a>
+            </div>
+            <div class="image">
+                <img src="{{ item.photo.url }}">
+            </div>
+             <div class="content">
+                <h3>{{ item.title }}</h3>
+                <div class="price">
+                    <div class="cut">{{ item.artist }}</div>
+                </div>
+            </div>
+    </div>
+{% endfor %}
+
+    </section>
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link -->
+<script src="{% static 'js/script.js' %}"></script>
 
 </body>
 </html>

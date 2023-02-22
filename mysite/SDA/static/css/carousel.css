@@ -1,4 +1,4 @@
-* { box-sizing: border-box; }
+* { box-sizing: content-box; }
 
 body { font-family: sans-serif; }
 
@@ -12,9 +12,8 @@ body { font-family: sans-serif; }
   /* set min-width, allow images to set cell width */
   min-width: 150px;
   max-width: 100%;
-  margin-right: 10px;
   /* vertically center */
-  transform: translateY(-50%);
+  transform: rotate(5deg);
 }
 
 .carousel.is-fullscreen .carousel-image {

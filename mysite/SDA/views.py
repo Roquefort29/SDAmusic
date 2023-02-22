@@ -71,20 +71,40 @@ def playlist(request):
 
 
 def rock(request):
-    return render(request, "../templates/rock.html")
+    album = Album.objects.filter(genre=3)
+    context = {
+        'rock': album,
+    }
+    return render(request, "../templates/rock.html", context=context)
 
 
 def rap(request):
-    return render(request, "../templates/rap.html")
+    album = Album.objects.filter(genre=2)
+    context = {
+        'rap': album,
+    }
+    return render(request, "../templates/rap.html", context=context)
 
 
 def jazz(request):
-    return render(request, "../templates/jazz.html")
+    album = Album.objects.filter(genre=4)
+    context = {
+        'jazz': album,
+    }
+    return render(request, "../templates/jazz.html", context=context)
 
 
 def phonk(request):
-    return render(request, "../templates/phonk.html")
+    album = Album.objects.filter(genre=5)
+    context = {
+        'phonk': album,
+    }
+    return render(request, "../templates/phonk.html", context=context)
 
 
 def pop(request):
-    return render(request, "../templates/pop.html")
+    album = Album.objects.filter(genre=1)
+    context = {
+        'pop': album,
+    }
+    return render(request, "../templates/pop.html", context=context)
