@@ -1,4 +1,6 @@
 from django.urls import path
+
+from . import views
 from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
@@ -12,14 +14,15 @@ urlpatterns = [
     path('login', login),
     path('register', register),
     path('myplaylist', playlist),
-    path('albumpage', albumpage),
     path('artistpage', artistpage),
     path('rock', rock),
     path('pop', pop),
     path('phonk', phonk),
     path('jazz', jazz),
     path('rap', rap),
-    path('albums', albums)
+    path('albums', albums, name="album_list"),
+    path('album/<slug:slug>/', album_detail, name='album_detail')
+,
 ]
 
 if settings.DEBUG:

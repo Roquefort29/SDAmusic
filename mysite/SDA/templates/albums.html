@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artists</title>
+    <title>Albums</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
@@ -22,7 +22,7 @@
     <h1 class="heading"> exclusive <span>products</span> </h1>
 
     <div class="box-container">
-{% for a in album %}
+{% for a in albums %}
         <div class="box" data-item="albums">
 
             {% if a.photo %}
@@ -31,8 +31,7 @@
             </div>
             {% endif %}
             <div class="content">
-                <h3>{{ a.title }}</h3>
-
+                <a href="{% url 'album_detail' slug=a.slug %}"><h3>{{ a.title }}</h3></a>
                 <div class="price">
                     <div class="cut">{{ a.artist }}</div>
                     </div>

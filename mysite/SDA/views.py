@@ -1,6 +1,8 @@
 import pymongo
+from django.views.generic import DetailView, ListView
+
 from .forms import *
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
 
@@ -40,10 +42,6 @@ def addTrack(request):
 
 def proFile(request):
     return render(request, "../templates/profile.html")
-
-
-def albumpage(request):
-    return render(request, "../templates/albumpage.html")
 
 
 def artistpage(request):
@@ -127,9 +125,17 @@ def pop(request):
     return render(request, "../templates/pop.html", context=context)
 
 
-def albums(request):
-    album = Album.objects.all()
+def album_detail(request, slug):
+    album = Album.objects.get(slug=slug)
     context = {
-        'album': album
+        'album': album,
+    }
+    return render(request, "../templates/albumpage.html", context=context)
+
+
+def albums(request):
+    albums = Album.objects.all()
+    context = {
+        'albums': albums
     }
     return render(request, "../templates/albums.html", context=context)
