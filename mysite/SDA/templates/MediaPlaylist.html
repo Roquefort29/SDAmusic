@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Playlist</title>
+    <title>Artists</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
@@ -21,155 +21,20 @@
 
     <h1 class="heading"> exclusive <span>products</span> </h1>
 
-    <div class="filter-buttons">
-        <div class="buttons" data-filter="playlists">Playlists</div>
-        <div class="buttons" data-filter="albums">Albums</div>
-        <div class="buttons" data-filter="artists">Artists</div>
-    </div>
-
     <div class="box-container">
-
+{% for a in artist %}
         <div class="box" data-item="albums">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
+
+            {% if a.photo %}
             <div class="image">
-                <img src="image/айкын_толепберген-асылым.jfif">
+                <img src="{{ a.photo.url }}">
             </div>
+            {% endif %}}
             <div class="content">
-                <h3>Асылым</h3>
-                <div class="price">
-                    <div class="cut">Айкын Толепберген</div>
-                </div>
+                <h3>{{ a.name }}</h3>
             </div>
         </div>
-
-        <div class="box" data-item="artists">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="image">
-                <img src="image/marhaba_sabi-artist.jfif">
-            </div>
-            <div class="content">
-                <h3>Мархаба Саби</h3>
-            </div>
-        </div>
-
-        <div class="box" data-item="playlists">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="image">
-                <img src="image/spotify-playlist.png">
-            </div>
-            <div class="content">
-                <h3>Top Spotify</h3>
-                <div class="price">
-                    <div class="cut">Syrym Adelshiev</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box" data-item="albums">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="image">
-                <img src="image/linkin_park-one_more_light.jfif">
-            </div>
-            <div class="content">
-                <h3>One more light</h3>
-                <div class="price">
-                    <div class="cut">Linkin park</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box" data-item="playlists">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="image">
-                <img src="image/my-playlist.jpg">
-            </div>
-            <div class="content">
-                <h3>My playlist</h3>
-                <div class="price">
-                    <div class="cut">Dias Kurmashev</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box" data-item="artists">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="image">
-                <img src="image/eminem-playlist.jpg">
-            </div>
-            <div class="content">
-                <h3>Eminem</h3>
-            </div>
-        </div>
-
-        <div class="box" data-item="albums">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="image">
-                <img src="image/104-Кино_Без_сигарет.jfif">
-            </div>
-            <div class="content">
-                <h3>Кино без сигарет</h3>
-                <div class="price">
-                    <div class="cut">104</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box" data-item="artists">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="image">
-                <img src="image/валерий_меладзе-artist.jfif">
-            </div>
-            <div class="content">
-                <h3>Валерий Меладзе</h3>
-            </div>
-        </div>
-
-        <div class="box" data-item="artists">
-            <div class="icons">
-                <a href="#" class="fas fa-eye"></a>
-                <a href="#" class="fas fa-play"></a>
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <div class="image">
-                <img src="image/nickelback-artist.jpg">
-            </div>
-            <div class="content">
-                <h3>Nickelback</h3>
-            </div>
-        </div>
-
+{% endfor %}
     </div>
 
 </section>

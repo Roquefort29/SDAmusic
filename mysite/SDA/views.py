@@ -67,7 +67,11 @@ def register(request):
 
 
 def playlist(request):
-    return render(request, "../templates/MediaPlaylist.html")
+    artist = Artist.objects.all()
+    context = {
+        'artist': artist,
+    }
+    return render(request, "../templates/MediaPlaylist.html", context=context)
 
 
 def rock(request):
