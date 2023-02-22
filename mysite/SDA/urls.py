@@ -8,6 +8,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', main),
     path('add_track', addTrack),
+    path('add_artist', addArtist),
+    path('add_content', addContent),
     path('profile', proFile),
     path('welcome', welcome),
     path('example', example),

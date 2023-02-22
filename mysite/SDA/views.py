@@ -13,22 +13,30 @@ def main(request):
     return render(request, "../templates/index.html")
 
 
+def addArtist(request):
+    if request.method == 'POST':
+        form = ArtistForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('artist_list')
+    else:
+        form = ArtistForm()
+    return render(request, '../templates/addArtist.html', {'form': form})
+
+
 def addTrack(request):
     if request.method == 'POST':
         form = TrackForm(request.POST, request.FILES)
         if form.is_valid():
-            artist_name = form.cleaned_data['artist_name']
-            artist, created = Artist.objects.get_or_create(name=artist_name)
-            if created:
-                artist.bio = ''
-                artist.save()
             track = form.save(commit=False)
-            track.save()
-            track.artist.add(artist)
             track.save()
     else:
         form = TrackForm()
     return render(request, '../templates/addTrack.html', {'form': form})
+
+
+def addContent(request):
+    return render(request, '../templates/addContent.html')
 
 
 def proFile(request):

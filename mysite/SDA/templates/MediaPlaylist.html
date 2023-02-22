@@ -32,7 +32,11 @@
             {% endif %}
             <div class="content">
                 <a href = "{% url 'artist_detail' slug=a.slug %}">
-                <h3>{{ a.name }}</h3>
+                    {% if a.is_verify %}
+                    <p><h3>{{a.name}} <span class="favorite-icon" style="color: blue">&#10004;</span></h3></p>
+                    {% else %}
+                    <h3>{{ a.name }}</h3>
+                    {% endif %}
                 </a>
             </div>
         </div>

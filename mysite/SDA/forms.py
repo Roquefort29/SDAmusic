@@ -4,9 +4,12 @@ from .models import *
 
 
 class TrackForm(forms.ModelForm):
-    artist_name = forms.CharField(max_length=100)
-
     class Meta:
         model = Track
-        fields = ['title', 'artist_name', 'genre', 'song', 'photo', 'is_published']
+        fields = ['slug', 'title', 'artist', 'genre', 'song', 'photo', 'is_published']
 
+
+class ArtistForm(forms.ModelForm):
+    class Meta:
+        model = Artist
+        fields = ['slug', 'name', 'photo']
