@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete Responsive Fashion Website Design Tutorial</title>
+    <title>Add Track</title>
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -21,18 +21,11 @@
 <section class="contact" id="contact">
     <h1 class="heading"> <span>contact</span> us </h1>
     <div class="row">
-        <form action="">
-            <h3>get in touch</h3>
-            <div class="inputBox">
-                <input type="text" placeholder="your name">
-                <input type="email" placeholder="your email">
-            </div>
-            <div class="inputBox">
-                <input type="number" placeholder="your number">
-                <input type="text" placeholder="your subject">
-            </div>
-            <textarea placeholder="your message" cols="30" rows="10"></textarea>
-            <input type="submit" value="send message" class="btn">
+        <form method="post" enctype="multipart/form-data">
+            <h3>Add Your Track here</h3>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add Track</button>
         </form>
     </div>
 </section>
