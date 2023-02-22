@@ -49,7 +49,7 @@
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 1, "autoplay": true }'>
     {% for i in album %}
-        <img class="carousel-image" src="{{i.photo.url}}">
+        <a href="{% url 'album_detail' slug=i.slug %}"><img class="carousel-image" src="{{i.photo.url}}"></a>
     {% endfor %}
     </div>
 </section>

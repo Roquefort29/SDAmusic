@@ -22,7 +22,7 @@
     <h1 class="heading"> exclusive <span>products</span> </h1>
 
     <div class="box-container">
-{% for a in artist %}
+        {% for a in artists %}
         <div class="box" data-item="albums">
 
             {% if a.photo %}
@@ -31,10 +31,12 @@
             </div>
             {% endif %}
             <div class="content">
+                <a href = "{% url 'artist_detail' slug=a.slug %}">
                 <h3>{{ a.name }}</h3>
+                </a>
             </div>
         </div>
-{% endfor %}
+        {% endfor %}
     </div>
 
 </section>

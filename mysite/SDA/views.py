@@ -17,23 +17,14 @@ def addTrack(request):
     if request.method == 'POST':
         form = TrackForm(request.POST, request.FILES)
         if form.is_valid():
-            # Get the artist name from the form data
             artist_name = form.cleaned_data['artist_name']
-
-            # Get or create the artist object
             artist, created = Artist.objects.get_or_create(name=artist_name)
             if created:
                 artist.bio = ''
                 artist.save()
-
-            # Save the track object to the database
             track = form.save(commit=False)
             track.save()
-
-            # Add the artist to the track's many-to-many relationship
             track.artist.add(artist)
-
-            # Save the track again to update the many-to-many relationship
             track.save()
     else:
         form = TrackForm()
@@ -42,10 +33,6 @@ def addTrack(request):
 
 def proFile(request):
     return render(request, "../templates/profile.html")
-
-
-def artistpage(request):
-    return render(request, "../templates/artistpage.html")
 
 
 def welcome(request):
@@ -77,10 +64,10 @@ def register(request):
     return render(request, "../templates/register.html")
 
 
-def playlist(request):
-    artist = Artist.objects.all()
+def artists(request):
+    artists = Artist.objects.all()
     context = {
-        'artist': artist,
+        'artists': artists,
     }
     return render(request, "../templates/MediaPlaylist.html", context=context)
 
@@ -139,3 +126,11 @@ def albums(request):
         'albums': albums
     }
     return render(request, "../templates/albums.html", context=context)
+
+
+def artist_detail(request, slug):
+    artist = Artist.objects.get(slug=slug)
+    context = {
+        'artist': artist,
+    }
+    return render(request, "../templates/artistpage.html", context=context)

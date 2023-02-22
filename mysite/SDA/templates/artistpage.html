@@ -25,19 +25,17 @@
 	</head>
 	<body>
 	{% include 'inc/_nav.html' %}
+
 		<div style="margin-top: 100px;">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
-						<img src="../../media/for_albums/eminem-the_eminem_show.jpg" style="max-width: 450px; max-height: 450px;">
-					</div>
-					<div class="col-md-6">
-						<h3><a href="welcome" style="text-decoration: none;">Eminem</a> -  The Eminem Show</h3>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-					</div>
+					<h1>{{ artist.name }}</h1>
+					<p>{{ artist.description }}</p>
+					<img src="{{ artist.photo.url }}" alt="{{ artist.title }} cover">
 				</div>
 			</div>
 		</div>
+
 	</body>
 </html>
 
