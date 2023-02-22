@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/x-icon" href="../media/photos/logo.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+{% include 'inc/_nav.html' %}
+<!-- header section ends -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> exclusive <span>products</span> </h1>
+
+    <div class="box-container">
+{% for a in album %}
+        <div class="box" data-item="albums">
+
+            {% if a.photo %}
+            <div class="image">
+                <img src="{{ a.photo.url }}">
+            </div>
+            {% endif %}
+            <div class="content">
+                <h3>{{ a.title }}</h3>
+
+                <div class="price">
+                    <div class="cut">{{ a.artist }}</div>
+                    </div>
+                </div>
+        </div>
+{% endfor %}
+    </div>
+
+</section>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+<!-- custom js file link -->
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
+</html>

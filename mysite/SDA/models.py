@@ -1,3 +1,4 @@
+from django.utils.text import slugify
 from djongo import models
 
 
@@ -73,6 +74,10 @@ class Track(models.Model):  # track
     song = models.FileField(upload_to='for_audiofiles/', default='')
     photo = models.ImageField(upload_to='for_tracks/', blank=True)
     is_published = models.BooleanField(default=True, verbose_name='Published?')
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = 'Track'

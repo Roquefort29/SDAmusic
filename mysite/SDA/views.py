@@ -12,7 +12,30 @@ def main(request):
 
 
 def addTrack(request):
-    return render(request, "../templates/addTrack.html")
+    if request.method == 'POST':
+        form = TrackForm(request.POST, request.FILES)
+        if form.is_valid():
+            # Get the artist name from the form data
+            artist_name = form.cleaned_data['artist_name']
+
+            # Get or create the artist object
+            artist, created = Artist.objects.get_or_create(name=artist_name)
+            if created:
+                artist.bio = ''
+                artist.save()
+
+            # Save the track object to the database
+            track = form.save(commit=False)
+            track.save()
+
+            # Add the artist to the track's many-to-many relationship
+            track.artist.add(artist)
+
+            # Save the track again to update the many-to-many relationship
+            track.save()
+    else:
+        form = TrackForm()
+    return render(request, '../templates/addTrack.html', {'form': form})
 
 
 def proFile(request):
@@ -53,17 +76,7 @@ def login(request):
 
 
 def register(request):
-    if request.method == 'POST':
-        user_register = UserRegister(request.POST)
-        if user_register.is_valid():
-            user_register.save()
-            messages.success("Зареган братишка")
-            return redirect('login')
-        else:
-            messages.error("Опаньки, не так все просто")
-    else:
-        user_register = UserRegister()
-    return render(request, "../templates/register.html", {"form": user_register})
+    return render(request, "../templates/register.html")
 
 
 def playlist(request):
@@ -112,3 +125,11 @@ def pop(request):
         'pop': album,
     }
     return render(request, "../templates/pop.html", context=context)
+
+
+def albums(request):
+    album = Album.objects.all()
+    context = {
+        'album': album
+    }
+    return render(request, "../templates/albums.html", context=context)

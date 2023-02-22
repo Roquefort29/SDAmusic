@@ -18,7 +18,8 @@ urlpatterns = [
     path('pop', pop),
     path('phonk', phonk),
     path('jazz', jazz),
-    path('rap', rap)
+    path('rap', rap),
+    path('albums', albums)
 ]
 
 if settings.DEBUG:
