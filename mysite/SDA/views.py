@@ -22,7 +22,12 @@ def addTrack(request):
 def proFile(request):
     return render(request, "../templates/profile.html")
 
+def albumpage(request):
+    return render(request, "../templates/albumpage.html")
 
+
+def artistpage(request):
+    return render(request, "../templates/artistpage.html")
 def welcome(request):
     album = Album.objects.all()
     context = {

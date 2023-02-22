@@ -13,6 +13,8 @@ urlpatterns = [
     path('login', login),
     path('register', register),
     path('myplaylist', playlist),
+    path('albumpage', albumpage),
+    path('artistpage', artistpage),
 ]
 
 if settings.DEBUG:

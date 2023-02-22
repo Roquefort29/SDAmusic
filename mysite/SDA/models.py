@@ -30,6 +30,7 @@ class Genre(models.Model):  # genre
 class Artist(models.Model):  # artist
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     name = models.CharField(max_length=50)
+    description = models.CharField(max_length=500, default="Information about artist")
     photo = models.ImageField(upload_to='artists/', blank=True)
     is_verify = models.BooleanField(default=False)
 
@@ -48,6 +49,7 @@ class Album(models.Model):  # album
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='albumArtist')
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE, related_name='albumGenre')
     photo = models.ImageField(upload_to='for_albums/', blank=True)
+    description = models.CharField(max_length=500, default="Someone's album")
     date = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=True, verbose_name='Published?')
