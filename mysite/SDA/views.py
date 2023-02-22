@@ -11,10 +11,6 @@ def main(request):
     return render(request, "../templates/index.html")
 
 
-def allTracks(request):
-    return render(request, "../templates/allTracks.html")
-
-
 def addTrack(request):
     return render(request, "../templates/addTrack.html")
 
@@ -22,12 +18,15 @@ def addTrack(request):
 def proFile(request):
     return render(request, "../templates/profile.html")
 
+
 def albumpage(request):
     return render(request, "../templates/albumpage.html")
 
 
 def artistpage(request):
     return render(request, "../templates/artistpage.html")
+
+
 def welcome(request):
     album = Album.objects.all()
     context = {
@@ -69,3 +68,23 @@ def register(request):
 
 def playlist(request):
     return render(request, "../templates/MediaPlaylist.html")
+
+
+def rock(request):
+    return render(request, "../templates/rock.html")
+
+
+def rap(request):
+    return render(request, "../templates/rap.html")
+
+
+def jazz(request):
+    return render(request, "../templates/jazz.html")
+
+
+def phonk(request):
+    return render(request, "../templates/phonk.html")
+
+
+def pop(request):
+    return render(request, "../templates/pop.html")

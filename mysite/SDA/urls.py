@@ -6,7 +6,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', main),
     path('add_track', addTrack),
-    path('all_track', allTracks),
     path('profile', proFile),
     path('welcome', welcome),
     path('example', example),
@@ -15,6 +14,11 @@ urlpatterns = [
     path('myplaylist', playlist),
     path('albumpage', albumpage),
     path('artistpage', artistpage),
+    path('rock', rock),
+    path('pop', pop),
+    path('phonk', phonk),
+    path('jazz', jazz),
+    path('rap', rap)
 ]
 
 if settings.DEBUG:
