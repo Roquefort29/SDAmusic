@@ -122,8 +122,11 @@ def pop(request):
 
 def album_detail(request, slug):
     album = Album.objects.get(slug=slug)
+    id_of_album = album.id
+    track = Track.objects.filter(album=id_of_album)
     context = {
         'album': album,
+        'track': track,
     }
     return render(request, "../templates/albumpage.html", context=context)
 

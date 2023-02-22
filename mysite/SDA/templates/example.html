@@ -13,9 +13,8 @@
         <h3><i>{{ hihi.genre }}</i></h3>
         <h3>{{ hihi.duration }}</h3>
             <audio autoplay="autoplay" controls="controls" style="display: block; position: fixed; left: auto; right: 0; bottom: 0; z-index: 999;">
-                        <source src="{{ hihi.song.url}}" type="audio/mpeg">
-
-                    </audio>
+                <source src="{{ hihi.song.url}}" type="audio/mpeg">
+            </audio>
 <!-- {{ hihi.song}} -->
     <img src="{{ hihi.photo.url}}">
    {% for p in hihi.artist.all %}

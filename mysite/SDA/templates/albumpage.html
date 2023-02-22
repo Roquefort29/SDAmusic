@@ -20,23 +20,51 @@
 		a:hover {
 			color: #FFCF40;
 		}
+		.bg-image {
+			background-image: url({{album.photo.url}});
+			width: 100%;
+			height: 100%;
+			filter: blur(10px);
+			position: relative;
+			z-index: 0;
+		}
 	</style>
 
 	</head>
 	<body>
-	{% include 'inc/_nav.html' %}
-		<div style="margin-top: 100px;">
-			<div class="container">
+	{% include 'inc/_navSlug.html' %}
+	<div class="bg-image" style="margin-top: 65px; height: 500px;">F</div>
+		<div>
+			<div class="container" style="position: absolute; top: 90px;">
 				<div class="row">
 					<div class="col-md-6">
-						<h3><a href="welcome" style="text-decoration: none;">Eminem</a> -  The Eminem Show</h3>
-
+						<img src="{{album.photo.url}}" style="max-width: 450px; max-height: 450px;">
 					</div>
 					<div class="col-md-6">
-						<img src="{{album.photo.url}}" style="max-width: 450px; max-height: 450px;">
+						<h2><a href="../../welcome" style="text-decoration: none;">{{album.artist}}</a> -  {{album.title}}</h2>
+						{% for i in track %}
+							<h3>{{i.title}}</h3>
+								<button style="width: 10px; height: 10px;">
+									<audio id="audio" src="{{ i.song.url}}"></audio>
+								</button>
+<!--							<audio autoplay="autoplay" controls="controls" style="display: block; position: fixed; left: auto; right: 0; bottom: 0; z-index: 999;">-->
+<!--                				<source src="{{ i.song.url}}" type="audio/mpeg">-->
+<!--            				</audio>-->
+						{% endfor %}
 					</div>
 				</div>
 			</div>
 		</div>
+		<br>
+		<br>
+
+		<div style="font-size: 20px;
+  			margin: 5px 20px 10px 20px;">
+			{{album.description}}
+		</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
+  	<script src="{% static '../script.js' %}"></script>
 	</body>
 </html>
