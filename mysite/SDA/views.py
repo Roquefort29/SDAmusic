@@ -13,6 +13,17 @@ def main(request):
     return render(request, "../templates/index.html")
 
 
+def CreateAlbum(request):
+    if request.method == 'POST':
+        form = AlbumForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('album_list')
+    else:
+        form = AlbumForm()
+    return render(request, '../templates/createAlbum.html', {'form': form})
+
+
 def addArtist(request):
     if request.method == 'POST':
         form = ArtistForm(request.POST, request.FILES)

@@ -93,6 +93,11 @@ class Track(models.Model):  # track
     get_artist.short_description = "Artists"
 
 
+class AlbumTrack(models.Model):
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    song = models.ForeignKey(Track, on_delete=models.CASCADE)
+
+
 class Playlist(models.Model):  # playlist
     slug = models.SlugField(max_length=255, verbose_name='Url', unique=True)
     title = models.CharField(max_length=150)
