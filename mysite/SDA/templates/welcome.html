@@ -36,7 +36,7 @@
     <div class="content">
         <span>Music is Life!</span>
         <h3>Listen favourite track!</h3>
-        <a href="albums" class="btn">Go to Listen</a>
+
         <a href="add_artist" class="btn">Create your Artist!</a>
         <a href="add_track" class="btn">Upload your own song!</a> <a href="add_album" class="btn">Create your Album!</a>
     </div>
@@ -51,23 +51,28 @@
     <!-- Flickity HTML init -->
     <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 1, "autoplay": true }'>
     {% for i in album %}
-        <a href="{% url 'album_detail' slug=i.slug %}"><img class="carousel-image" src="{{i.photo.url}}"></a>
+        <img class="carousel-image" src="{{i.photo.url}}"></a>
     {% endfor %}
     </div>
 
 </section>
+<center><a href="albums" class="btn">Go to Listen</a></center>
 <!-- yeat -->
 
 <section class="featured" id="featured" style="margin-top: 100px;">
     <h1 class="heading"> <span>Genres</span></h1>
     <div class="carousel" data-flickity='{ "fullscreen": true, "lazyLoad": 1, "autoplay": true }'>
-        <a href="rap"><img class="carousel-image" src="../media/photos/1_7V4wole.png"></a>
-        <a href="phonk"><img class="carousel-image" src="../../media/photos/2.png"></a>
-        <a href="rock"><img class="carousel-image" src="../../media/photos/3.png"></a>
-        <a href="jazz"><img class="carousel-image" src="../../media/photos/4.png"></a>
-        <a href="pop"><img class="carousel-image" src="../../media/photos/5.png"></a>
+        <img class="carousel-image" src="../media/photos/1_7V4wole.png">
+        <img class="carousel-image" src="../../media/photos/2.png">
+        <img class="carousel-image" src="../../media/photos/3.png">
+        <img class="carousel-image" src="../../media/photos/4.png">
+        <img class="carousel-image" src="../../media/photos/5.png">
     </div>
+
+
 </section>
+
+    <center><a href="rap" class="btn">Rap</a>  <a href="phonk" class="btn">Phonk</a> <a href="rock" class="btn">Rock</a> <a href="jazz" class="btn">Jazz</a> <a href="pop" class="btn">Pop</a></center>
 <!-- e -->
 <!--<section class="featured" id="featured">-->
 <!--    <h1 class="heading"> <span>Other playlists</span></h1>-->
