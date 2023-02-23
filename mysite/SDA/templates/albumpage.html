@@ -43,7 +43,9 @@
 					<div class="col-md-6">
 						<h2><a href="../../welcome" style="text-decoration: none;">{{album.artist}}</a> -  {{album.title}}</h2>
 						{% for i in track %}
+						<a href="{% url 'track_detail' slug=i.slug %}">
 							<h3>{{i.title}}</h3>
+						</a>
 								<button style="width: 10px; height: 10px;">
 									<audio id="audio" src="{{ i.song.url}}"></audio>
 								</button>

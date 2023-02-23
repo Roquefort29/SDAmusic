@@ -24,7 +24,8 @@ urlpatterns = [
     path('jazz', jazz),
     path('rap', rap),
     path('albums', albums, name="album_list"),
-    path('album/<slug:slug>/', album_detail, name='album_detail')
+    path('album/<slug:slug>/', album_detail, name='album_detail'),
+    path('track/<slug:slug>/', track_detail, name='track_detail')
 ,
 ]
 
