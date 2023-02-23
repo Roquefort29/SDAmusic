@@ -152,11 +152,13 @@ def albums(request):
 
 def artist_detail(request, slug):
     artist = Artist.objects.get(slug=slug)
+    id_of_artist = artist.id
+    album = Album.objects.filter(artist=id_of_artist)
     context = {
         'artist': artist,
+        'album': album,
     }
     return render(request, "../templates/artistpage.html", context=context)
-
 
 def track_detail(request, slug):
     track = Track.objects.get(slug=slug)

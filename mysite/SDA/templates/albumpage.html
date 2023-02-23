@@ -46,12 +46,6 @@
 						<a href="{% url 'track_detail' slug=i.slug %}">
 							<h3>{{i.title}}</h3>
 						</a>
-								<button style="width: 10px; height: 10px;">
-									<audio id="audio" src="{{ i.song.url}}"></audio>
-								</button>
-<!--							<audio autoplay="autoplay" controls="controls" style="display: block; position: fixed; left: auto; right: 0; bottom: 0; z-index: 999;">-->
-<!--                				<source src="{{ i.song.url}}" type="audio/mpeg">-->
-<!--            				</audio>-->
 						{% endfor %}
 					</div>
 				</div>

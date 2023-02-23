@@ -2,10 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="image/x-icon" href="../../../media/photos/logo.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player</title>
+    <title> SDA </title>
     <link rel="stylesheet" href="{% static 'css/autioplayer.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">  
@@ -17,7 +18,7 @@
    <div class="player">
        <div class="wrapper">
            <div class="details">
-               <div class="track-art"></div>
+               <div class="image"><img style="width: 300px; height: 300px;" src="{{track.photo.url}}"></div>
                <div class="track-name">{{track.title}}</div>
                <div class="track-artist">{{track.get_artist}}</div>
            </div>

@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/carousel.css' %}">
 
 	<style>
 		a {
@@ -25,17 +24,31 @@
 	</head>
 	<body>
 	{% include 'inc/_navSlug.html' %}
-
-		<div style="margin-top: 100px;">
-			<div class="container">
-				<div class="row">
-					<h1>{{ artist.name }}</h1>
-					<p>{{ artist.description }}</p>
-					<img src="{{ artist.photo.url }}" alt="{{ artist.title }} cover">
+		<div>
+			<div class="container" style="margin-top: 70px;">
+					<center><img src="{{artist.photo.url}}" style="max-width: 450px; max-height: 450px;"></center>
+						<center><h2><a href="../../welcome" style="text-decoration: none;">{{artist.name}}</a></h2>
+					<br>
+					<br>
+					<h2>Albums:</h2>
+						{% for i in album %}
+						<a href="{% url 'album_detail' slug=i.slug %}">
+							<h3>{{i.title}}</h3>
+						</a>
+						{% endfor %}
+					</center>
+					<br>
+					<br>
+				<h2>Biography:</h2>
+					<div style="font-size: 20px;
+  						margin: 5px 20px 10px 20px;">
+							{{artist.description}}
+					</div>
 				</div>
 			</div>
-		</div>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.2.7/mediaelement-and-player.min.js"></script>
+  	<script src="{% static '../script.js' %}"></script>
 	</body>
 </html>
-
