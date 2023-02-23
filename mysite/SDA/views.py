@@ -157,16 +157,10 @@ def artist_detail(request, slug):
     }
     return render(request, "../templates/artistpage.html", context=context)
 
-def artist_detail(request, slug):
-    artist = Artist.objects.get(slug=slug)
-    context = {
-        'artist': artist,
-    }
-    return render(request, "../templates/artistpage.html", context=context)
 
 def track_detail(request, slug):
     track = Track.objects.get(slug=slug)
     context = {
         'track': track
     }
-    return render(request, "../templates/trackpage.html")
+    return render(request, "../templates/trackpage.html", context=context)

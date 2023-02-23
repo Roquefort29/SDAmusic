@@ -2,35 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/x-icon" href="../media/photos/logo.png">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Albums</title>
-
+    <title>Music Player</title>
+    <link rel="stylesheet" href="{% static 'css/autioplayer.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-
-<!-- header section starts  -->
-{% include 'inc/_nav.html' %}
-<!-- header section ends -->
-
-<section class="products" id="products">
-
-    <h1 class="heading"> exclusive <span>products</span> </h1>
-
-    <div class="box-container">
-
-    </div>
-
-</section>
-
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-<!-- custom js file link -->
-<script src="{% static 'js/script.js' %}"></script>
-
+{% include 'inc/_navSlug.html' %}
+   <div class="player">
+       <div class="wrapper">
+           <div class="details">
+               <div class="track-art"></div>
+               <div class="track-name">{{track.title}}</div>
+               <div class="track-artist">{{track.get_artist}}</div>
+           </div>
+                <audio controls="controls" style="display: block; left: auto; right: 0; bottom: 0; z-index: 999;">
+                    <source src="{{ track.song.url}}" type="audio/mpeg">
+                </audio>
+           </div>
+   </div>
 </body>
 </html>
