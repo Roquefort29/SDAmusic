@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Track</title>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -25,7 +26,7 @@
             <h3>Add Your Track here</h3>
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Add Track</button>
+            <button type="submit" class="btn btn-primary">Add Track</button>
         </form>
     </div>
 </section>
